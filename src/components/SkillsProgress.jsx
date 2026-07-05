@@ -1,20 +1,31 @@
 import React from 'react';
 
 const SkillsProgress = ({ skills }) => {
+  const levelLabel = (level) => {
+    if (level >= 85) return 'Avanzado';
+    if (level >= 70) return 'Intermedio';
+    return 'Base';
+  };
+
   return (
-    <div className="space-y-6">
+    <div className="space-y-5">
       {skills.map((skill) => (
         <div key={skill.name}>
-          <div className="flex justify-between mb-1">
-            <span className="font-medium">{skill.name}</span>
-            <span className="text-sm">{skill.level}%</span>
+          <div className="flex items-center justify-between gap-3 mb-2">
+            <span className="font-medium text-slate-100">{skill.name}</span>
+            <div className="flex items-center gap-2">
+              <span className="text-[11px] uppercase tracking-wide px-2 py-1 rounded-full bg-emerald-600/20 text-emerald-300 border border-emerald-600/30">
+                {levelLabel(skill.level)}
+              </span>
+              <span className="text-sm text-slate-300">{skill.level}%</span>
+            </div>
           </div>
-          <div className="w-full bg-slate-800 rounded-full h-4">
+          <div className="w-full bg-slate-800 rounded-full h-3 overflow-hidden">
             <div
-              className="h-4 rounded-full transition-all duration-1000"
+              className="h-3 rounded-full transition-all duration-1000"
               style={{
                 width: `${skill.level}%`,
-                background: 'linear-gradient(90deg, #6366f1 0%, #a21caf 40%, #ec4899 80%, #6366f1 100%)'
+                background: 'linear-gradient(90deg, #16a34a 0%, #22c55e 40%, #4ade80 80%, #16a34a 100%)'
               }}
             />
           </div>

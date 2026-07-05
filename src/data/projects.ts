@@ -12,28 +12,28 @@ const projects: ProjectData[] = [
     title: 'Proyecto 1',
     description: 'Descripción detallada del proyecto 1',
     tech: ['Astro', 'Tailwind', 'TypeScript'],
-    link: 'enemyers.dev'
+    link: '/proyectos/proyecto-1'
   },
   {
     id: 'proyecto-2',
     title: 'Proyecto 2',
     description: 'Descripción detallada del proyecto 2',
     tech: ['React', 'Node.js', 'MongoDB'],
-    link: 'enemyers.dev'
+    link: '/proyectos/proyecto-2'
   },
   {
     id: 'proyecto-3',
     title: 'Proyecto 3',
     description: 'Descripción detallada del proyecto 3',
     tech: ['Vue.js', 'Python', 'Django'],
-    link: 'enemyers.dev'
+    link: '/proyectos/proyecto-3'
   },
   {
     id: 'proyecto-4',
     title: 'Proyecto 4',
     description: 'Descripción detallada del proyecto 4',
     tech: ['Next.js', 'Prisma', 'PostgreSQL'],
-    link: 'enemyers.dev'
+    link: '/proyectos/proyecto-4'
   }
 ];
 
