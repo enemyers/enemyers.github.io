@@ -14,7 +14,7 @@ const SkillsProgress = ({ skills }) => {
           <div className="flex items-center justify-between gap-3 mb-2">
             <span className="font-medium text-slate-800 dark:text-slate-100">{skill.name}</span>
             <div className="flex items-center gap-2">
-              <span className="text-[11px] uppercase tracking-wide px-2 py-1 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-400/40">
+              <span className="text-[11px] uppercase tracking-wide px-2 py-1 rounded-full bg-cyan-500/15 text-cyan-700 border border-cyan-300/60 dark:bg-cyan-500/20 dark:text-cyan-300 dark:border-cyan-400/40">
                 {levelLabel(skill.level)}
               </span>
               <span className="text-sm text-slate-600 dark:text-slate-300">{skill.level}%</span>

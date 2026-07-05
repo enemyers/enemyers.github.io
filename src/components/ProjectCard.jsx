@@ -16,13 +16,13 @@ export default function ProjectCard({ title, description, tech, link }) {
       <p className="text-slate-700 dark:text-cyan-100 mb-4">{description}</p>
       <div className="flex flex-wrap gap-2 mb-4">
         {tech.map((t) => (
-          <span key={t} className="px-2 py-1 bg-cyan-500 rounded text-sm">{t}</span>
+          <span key={t} className="px-2 py-1 bg-cyan-700 dark:bg-cyan-500 rounded text-sm text-white">{t}</span>
         ))}
       </div>
       {link && (
         <a
           href={link}
-          className="inline-block text-cyan-300 hover:text-cyan-200 underline"
+          className="inline-block text-cyan-700 hover:text-cyan-800 dark:text-cyan-300 dark:hover:text-cyan-200 underline"
           target={isExternalLink ? '_blank' : undefined}
           rel={isExternalLink ? 'noopener noreferrer' : undefined}
         >

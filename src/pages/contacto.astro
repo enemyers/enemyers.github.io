@@ -19,17 +19,17 @@ import ThemeToggle from "../components/ThemeToggle.astro";
       <AnimatedText text="Contacto" className="text-5xl mb-8" client:load />
       <div class="mb-8 p-6 rounded-lg bg-white/85 border border-slate-200 text-base dark:bg-slate-800 dark:border-slate-700">
         <div class="mb-2 font-semibold text-lg">{personalData.fullName}</div>
-        <div class="mb-2 text-cyan-300">{personalData.profesion}</div>
+        <div class="mb-2 text-cyan-700 dark:text-cyan-300">{personalData.profesion}</div>
         <div class="mb-2">{personalData.ubicacion}</div>
         <div class="mb-2">
-          <a href={`mailto:${personalData.email}`} class="text-cyan-300 underline hover:text-cyan-200 transition">{personalData.email}</a>
+          <a href={`mailto:${personalData.email}`} class="text-cyan-700 underline hover:text-cyan-800 dark:text-cyan-300 dark:hover:text-cyan-200 transition">{personalData.email}</a>
         </div>
         <div class="flex gap-4 mt-2">
           <a href={personalData.redes.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="hover:scale-110 transition">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="text-cyan-300"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.804-1.75-1.732s.784-1.732 1.75-1.732 1.75.804 1.75 1.732-.784 1.732-1.75 1.732zm13.5 11.268h-3v-5.604c0-1.337-.025-3.063-1.868-3.063-1.868 0-2.154 1.459-2.154 2.968v5.699h-3v-10h2.881v1.367h.041c.401-.761 1.379-1.563 2.838-1.563 3.036 0 3.599 2 3.599 4.591v5.605z"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="text-cyan-700 dark:text-cyan-300"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.804-1.75-1.732s.784-1.732 1.75-1.732 1.75.804 1.75 1.732-.784 1.732-1.75 1.732zm13.5 11.268h-3v-5.604c0-1.337-.025-3.063-1.868-3.063-1.868 0-2.154 1.459-2.154 2.968v5.699h-3v-10h2.881v1.367h.041c.401-.761 1.379-1.563 2.838-1.563 3.036 0 3.599 2 3.599 4.591v5.605z"/></svg>
           </a>
           <a href={personalData.redes.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="hover:scale-110 transition">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="text-cyan-300"><path d="M12 0c-6.627 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.6.113.793-.258.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.304.762-1.604-2.665-.305-5.466-1.334-5.466-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.553 3.297-1.23 3.297-1.23.653 1.653.242 2.873.119 3.176.77.84 1.235 1.91 1.235 3.221 0 4.609-2.803 5.624-5.475 5.921.43.372.823 1.102.823 2.222v3.293c0 .322.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="text-cyan-700 dark:text-cyan-300"><path d="M12 0c-6.627 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.6.113.793-.258.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.304.762-1.604-2.665-.305-5.466-1.334-5.466-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.553 3.297-1.23 3.297-1.23.653 1.653.242 2.873.119 3.176.77.84 1.235 1.91 1.235 3.221 0 4.609-2.803 5.624-5.475 5.921.43.372.823 1.102.823 2.222v3.293c0 .322.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
           </a>
         </div>
       </div>
@@ -58,11 +58,11 @@ import ThemeToggle from "../components/ThemeToggle.astro";
           placeholder="Tu mensaje"
           required></textarea>
         <button
-          class="px-6 py-3 bg-cyan-500 rounded-lg shadow hover:bg-cyan-400 transition"
+          class="px-6 py-3 bg-cyan-700 rounded-lg shadow hover:bg-cyan-600 dark:bg-cyan-500 dark:hover:bg-cyan-400 transition text-white font-semibold"
           type="submit">Enviar</button
         >
       </form>
-      <a href="/" class="block mt-8 text-cyan-300 underline"
+      <a href="/" class="block mt-8 text-cyan-700 underline hover:text-cyan-800 dark:text-cyan-300 dark:hover:text-cyan-200"
         >Volver al inicio</a
       >
     </main>
