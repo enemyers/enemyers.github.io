@@ -3,6 +3,7 @@ import AnimatedText from "../components/AnimatedText.jsx";
 import SkillsProgress from "../components/SkillsProgress.jsx";
 import skillsByCategory from "../data/skills";
 import Scroller from "../components/Scroller.jsx";
+import ThemeToggle from "../components/ThemeToggle.astro";
 
 const totalSkills = skillsByCategory.reduce((acc, cat) => acc + cat.skills.length, 0);
 const averageLevel = Math.round(
@@ -19,25 +20,26 @@ const averageLevel = Math.round(
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio | Skills</title>
   </head>
-  <body class="bg-zinc-950 text-white min-h-screen">
+  <body class="bg-gradient-to-br from-slate-100 to-cyan-50 text-slate-900 dark:from-zinc-950 dark:to-slate-900 dark:text-white min-h-screen">
+    <ThemeToggle />
     <main class="max-w-6xl mx-auto px-4 py-12">
-      <section class="rounded-2xl border border-slate-700 bg-slate-900/70 p-8 shadow-xl">
+      <section class="rounded-2xl border border-slate-200 bg-white/80 p-8 shadow-xl dark:border-slate-700 dark:bg-slate-900/70">
         <AnimatedText text="Skills" className="text-5xl mb-4" client:load />
-        <p class="text-slate-300 max-w-3xl">
+        <p class="text-slate-700 max-w-3xl dark:text-slate-300">
           Stack fullstack orientado a backend escalable, APIs robustas y frontends modernos con enfoque en rendimiento.
         </p>
 
         <div class="mt-6 grid gap-4 sm:grid-cols-3">
-          <article class="rounded-lg border border-slate-700 bg-slate-800 p-4">
-            <p class="text-sm uppercase tracking-wide text-slate-400">Categorías</p>
+          <article class="rounded-lg border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-800">
+            <p class="text-sm uppercase tracking-wide text-slate-500 dark:text-slate-400">Categorías</p>
             <p class="mt-1 text-3xl font-bold text-cyan-300">{skillsByCategory.length}</p>
           </article>
-          <article class="rounded-lg border border-slate-700 bg-slate-800 p-4">
-            <p class="text-sm uppercase tracking-wide text-slate-400">Skills totales</p>
+          <article class="rounded-lg border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-800">
+            <p class="text-sm uppercase tracking-wide text-slate-500 dark:text-slate-400">Skills totales</p>
             <p class="mt-1 text-3xl font-bold text-cyan-300">{totalSkills}</p>
           </article>
-          <article class="rounded-lg border border-slate-700 bg-slate-800 p-4">
-            <p class="text-sm uppercase tracking-wide text-slate-400">Nivel promedio</p>
+          <article class="rounded-lg border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-800">
+            <p class="text-sm uppercase tracking-wide text-slate-500 dark:text-slate-400">Nivel promedio</p>
             <p class="mt-1 text-3xl font-bold text-cyan-300">{averageLevel}%</p>
           </article>
         </div>
@@ -45,7 +47,7 @@ const averageLevel = Math.round(
 
       <section class="mt-10 grid gap-6 md:grid-cols-2">
         {skillsByCategory.map((cat) => (
-          <article class="rounded-xl border border-slate-700 bg-slate-900/70 p-6 shadow-lg">
+          <article class="rounded-xl border border-slate-200 bg-white/80 p-6 shadow-lg dark:border-slate-700 dark:bg-slate-900/70">
             <div class="mb-5 flex items-center justify-between gap-3">
               <h3 class="text-xl font-semibold">{cat.category}</h3>
               <span class="text-xs px-2 py-1 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-400/40">

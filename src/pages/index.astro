@@ -6,6 +6,7 @@ import avatar from "../assets/avatar.jpg";
 import projects from "../data/projects";
 import skillsByCategory from "../data/skills";
 import Scroller from "../components/Scroller.jsx";
+import ThemeToggle from "../components/ThemeToggle.astro";
 
 const skillLevelByName = new Map(
   skillsByCategory.flatMap((category) =>
@@ -42,8 +43,9 @@ const featuredProjects = projects
     <title>Portfolio | Inicio</title>
   </head>
   <body
-    class="bg-gradient-to-br from-zinc-950 to-slate-900 min-h-screen text-white"
+    class="bg-gradient-to-br from-slate-100 to-cyan-50 text-slate-900 dark:from-zinc-950 dark:to-slate-900 dark:text-white min-h-screen"
   >
+    <ThemeToggle />
     <main class="max-w-3xl mx-auto py-20 px-4">
       <style>
         .avatar-animated-border {

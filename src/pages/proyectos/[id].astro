@@ -1,6 +1,7 @@
 ---
 import Scroller from '../../components/Scroller.jsx';
 import projects from '../../data/projects';
+import ThemeToggle from '../../components/ThemeToggle.astro';
 
 export function getStaticPaths() {
   return projects.map((project) => ({
@@ -19,16 +20,17 @@ const detail = project.detail;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{project.title} | Detalle</title>
   </head>
-  <body class="bg-gradient-to-br from-zinc-950 to-slate-900 min-h-screen text-white">
+  <body class="bg-gradient-to-br from-slate-100 to-cyan-50 text-slate-900 dark:from-zinc-950 dark:to-slate-900 dark:text-white min-h-screen">
+    <ThemeToggle />
     <main class="max-w-5xl mx-auto px-4 py-16">
       <a href="/proyectos" class="text-cyan-300 underline hover:text-cyan-200">
         ← Volver a proyectos
       </a>
 
-      <section class="mt-8 rounded-2xl border border-slate-700 bg-slate-800/70 p-8 shadow-xl">
+      <section class="mt-8 rounded-2xl border border-slate-200 bg-white/85 p-8 shadow-xl dark:border-slate-700 dark:bg-slate-800/70">
         <p class="text-cyan-300 uppercase tracking-[0.2em] text-xs mb-3">{detail.label}</p>
         <h1 class="text-4xl md:text-5xl font-bold leading-tight">{project.title}</h1>
-        <p class="mt-4 text-cyan-100 text-lg max-w-3xl">
+        <p class="mt-4 text-slate-700 dark:text-cyan-100 text-lg max-w-3xl">
           {project.description}. {detail.context}
         </p>
         <div class="mt-6 flex flex-wrap gap-2">
@@ -39,64 +41,64 @@ const detail = project.detail;
       </section>
 
       <section class="grid gap-6 mt-10 md:grid-cols-3">
-        <article class="rounded-xl border border-slate-700 bg-slate-800 p-6">
+        <article class="rounded-xl border border-slate-200 bg-white/85 p-6 dark:border-slate-700 dark:bg-slate-800">
           <p class="text-xs uppercase tracking-[0.18em] text-cyan-300 mb-2">Rol</p>
           <p class="text-lg font-semibold">{detail.role}</p>
         </article>
-        <article class="rounded-xl border border-slate-700 bg-slate-800 p-6">
+        <article class="rounded-xl border border-slate-200 bg-white/85 p-6 dark:border-slate-700 dark:bg-slate-800">
           <p class="text-xs uppercase tracking-[0.18em] text-cyan-300 mb-2">Duracion</p>
           <p class="text-lg font-semibold">{detail.duration}</p>
         </article>
-        <article class="rounded-xl border border-slate-700 bg-slate-800 p-6">
+        <article class="rounded-xl border border-slate-200 bg-white/85 p-6 dark:border-slate-700 dark:bg-slate-800">
           <p class="text-xs uppercase tracking-[0.18em] text-cyan-300 mb-2">Objetivo</p>
-          <p class="text-slate-300">{detail.objective}</p>
+          <p class="text-slate-700 dark:text-slate-300">{detail.objective}</p>
         </article>
       </section>
 
       <section class="mt-10 grid gap-6 md:grid-cols-2">
-        <article class="rounded-xl border border-slate-700 bg-slate-800 p-6">
+        <article class="rounded-xl border border-slate-200 bg-white/85 p-6 dark:border-slate-700 dark:bg-slate-800">
           <h2 class="text-xl font-semibold mb-3">Reto principal</h2>
-          <p class="text-slate-300">{detail.challenge}</p>
+          <p class="text-slate-700 dark:text-slate-300">{detail.challenge}</p>
         </article>
-        <article class="rounded-xl border border-slate-700 bg-slate-800 p-6">
+        <article class="rounded-xl border border-slate-200 bg-white/85 p-6 dark:border-slate-700 dark:bg-slate-800">
           <h2 class="text-xl font-semibold mb-3">Enfoque de solucion</h2>
-          <p class="text-slate-300">{detail.solution}</p>
+          <p class="text-slate-700 dark:text-slate-300">{detail.solution}</p>
         </article>
       </section>
 
-      <section class="mt-10 rounded-xl border border-slate-700 bg-slate-800 p-6">
+      <section class="mt-10 rounded-xl border border-slate-200 bg-white/85 p-6 dark:border-slate-700 dark:bg-slate-800">
         <header>
           <h2 class="text-2xl font-semibold">Arquitectura y decisiones tecnicas</h2>
-          <p class="mt-2 text-slate-300 max-w-3xl">
+          <p class="mt-2 text-slate-700 dark:text-slate-300 max-w-3xl">
             Este bloque resume las decisiones clave que sostienen el rendimiento, mantenibilidad y escalabilidad del proyecto.
           </p>
         </header>
 
         <ul class="mt-6 grid gap-4 md:grid-cols-3">
           {detail.architecture.map((item) => (
-            <li class="rounded-lg border border-slate-600 bg-slate-900/60 p-4 text-slate-200">{item}</li>
+            <li class="rounded-lg border border-slate-200 bg-white p-4 text-slate-700 dark:border-slate-600 dark:bg-slate-900/60 dark:text-slate-200">{item}</li>
           ))}
         </ul>
       </section>
 
-      <section class="mt-10 rounded-xl border border-slate-700 bg-slate-800 p-6">
+      <section class="mt-10 rounded-xl border border-slate-200 bg-white/85 p-6 dark:border-slate-700 dark:bg-slate-800">
         <h2 class="text-2xl font-semibold">Resultados medibles</h2>
         <div class="mt-6 grid gap-4 md:grid-cols-3">
           {detail.metrics.map((item) => (
-            <article class="rounded-lg border border-cyan-500/40 bg-slate-900/60 p-4">
+            <article class="rounded-lg border border-cyan-500/40 bg-white p-4 dark:bg-slate-900/60">
               <p class="text-cyan-300 uppercase text-xs tracking-[0.18em]">{item.metric}</p>
               <p class="mt-2 text-3xl font-bold">{item.value}</p>
-              <p class="mt-2 text-slate-300 text-sm">{item.note}</p>
+              <p class="mt-2 text-slate-600 dark:text-slate-300 text-sm">{item.note}</p>
             </article>
           ))}
         </div>
       </section>
 
-      <section class="mt-10 rounded-xl border border-slate-700 bg-slate-800 p-6">
+      <section class="mt-10 rounded-xl border border-slate-200 bg-white/85 p-6 dark:border-slate-700 dark:bg-slate-800">
         <h2 class="text-2xl font-semibold">Proximos pasos</h2>
         <ol class="mt-4 space-y-3">
           {detail.roadmap.map((step, index) => (
-            <li class="flex items-start gap-3 text-slate-200">
+            <li class="flex items-start gap-3 text-slate-700 dark:text-slate-200">
               <span class="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cyan-600 text-xs font-semibold">
                 {index + 1}
               </span>

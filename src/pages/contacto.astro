@@ -2,6 +2,7 @@
 import Scroller from "../components/Scroller.jsx";
 import AnimatedText from "../components/AnimatedText.jsx";
 import personalData from "../data/personalData";
+import ThemeToggle from "../components/ThemeToggle.astro";
 ---
 
 <html lang="es">
@@ -11,11 +12,12 @@ import personalData from "../data/personalData";
     <title>Portfolio | Contacto</title>
   </head>
   <body
-    class="bg-gradient-to-br from-zinc-950 to-slate-900 min-h-screen text-white"
+    class="bg-gradient-to-br from-slate-100 to-cyan-50 text-slate-900 dark:from-zinc-950 dark:to-slate-900 dark:text-white min-h-screen"
   >
+    <ThemeToggle />
     <main class="max-w-lg mx-auto py-20 px-4">
       <AnimatedText text="Contacto" className="text-5xl mb-8" client:load />
-      <div class="mb-8 p-6 rounded-lg bg-slate-800 border border-slate-700 text-base">
+      <div class="mb-8 p-6 rounded-lg bg-white/85 border border-slate-200 text-base dark:bg-slate-800 dark:border-slate-700">
         <div class="mb-2 font-semibold text-lg">{personalData.fullName}</div>
         <div class="mb-2 text-cyan-300">{personalData.profesion}</div>
         <div class="mb-2">{personalData.ubicacion}</div>
@@ -37,21 +39,21 @@ import personalData from "../data/personalData";
         class="flex flex-col gap-4"
       >
         <input
-          class="p-3 rounded bg-slate-800 border border-slate-700"
+          class="p-3 rounded bg-white border border-slate-300 text-slate-900 placeholder:text-slate-500 dark:bg-slate-800 dark:border-slate-700 dark:text-white dark:placeholder:text-slate-400"
           type="text"
           name="nombre"
           placeholder="Tu nombre"
           required
         />
         <input
-          class="p-3 rounded bg-slate-800 border border-slate-700"
+          class="p-3 rounded bg-white border border-slate-300 text-slate-900 placeholder:text-slate-500 dark:bg-slate-800 dark:border-slate-700 dark:text-white dark:placeholder:text-slate-400"
           type="email"
           name="email"
           placeholder="Tu email"
           required
         />
         <textarea
-          class="p-3 rounded bg-slate-800 border border-slate-700"
+          class="p-3 rounded bg-white border border-slate-300 text-slate-900 placeholder:text-slate-500 dark:bg-slate-800 dark:border-slate-700 dark:text-white dark:placeholder:text-slate-400"
           name="mensaje"
           placeholder="Tu mensaje"
           required></textarea>
