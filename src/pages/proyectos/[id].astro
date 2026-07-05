@@ -10,6 +10,7 @@ export function getStaticPaths() {
 }
 
 const { project } = Astro.props;
+const detail = project.detail;
 ---
 
 <html lang="es">
@@ -25,11 +26,10 @@ const { project } = Astro.props;
       </a>
 
       <section class="mt-8 rounded-2xl border border-slate-700 bg-slate-800/70 p-8 shadow-xl">
-        <p class="text-cyan-300 uppercase tracking-[0.2em] text-xs mb-3">Caso de estudio</p>
+        <p class="text-cyan-300 uppercase tracking-[0.2em] text-xs mb-3">{detail.label}</p>
         <h1 class="text-4xl md:text-5xl font-bold leading-tight">{project.title}</h1>
         <p class="mt-4 text-cyan-100 text-lg max-w-3xl">
-          {project.description}. Esta vista es una plantilla propuesta para presentar contexto,
-          objetivos, arquitectura y resultados del proyecto.
+          {project.description}. {detail.context}
         </p>
         <div class="mt-6 flex flex-wrap gap-2">
           {project.tech.map((tech) => (
@@ -38,61 +38,72 @@ const { project } = Astro.props;
         </div>
       </section>
 
-      <section class="grid md:grid-cols-3 gap-6 mt-10">
+      <section class="grid gap-6 mt-10 md:grid-cols-3">
         <article class="rounded-xl border border-slate-700 bg-slate-800 p-6">
-          <h2 class="text-xl font-semibold mb-3">Problema</h2>
-          <p class="text-slate-300">
-            Describe aquí la necesidad del cliente o usuario y los retos principales del proyecto.
-          </p>
+          <p class="text-xs uppercase tracking-[0.18em] text-cyan-300 mb-2">Rol</p>
+          <p class="text-lg font-semibold">{detail.role}</p>
         </article>
         <article class="rounded-xl border border-slate-700 bg-slate-800 p-6">
-          <h2 class="text-xl font-semibold mb-3">Solución</h2>
-          <p class="text-slate-300">
-            Explica el enfoque funcional y técnico aplicado, con énfasis en decisiones de arquitectura.
-          </p>
+          <p class="text-xs uppercase tracking-[0.18em] text-cyan-300 mb-2">Duracion</p>
+          <p class="text-lg font-semibold">{detail.duration}</p>
         </article>
         <article class="rounded-xl border border-slate-700 bg-slate-800 p-6">
-          <h2 class="text-xl font-semibold mb-3">Impacto</h2>
-          <p class="text-slate-300">
-            Incluye métricas o mejoras medibles: rendimiento, conversión, mantenimiento o escalabilidad.
-          </p>
+          <p class="text-xs uppercase tracking-[0.18em] text-cyan-300 mb-2">Objetivo</p>
+          <p class="text-slate-300">{detail.objective}</p>
+        </article>
+      </section>
+
+      <section class="mt-10 grid gap-6 md:grid-cols-2">
+        <article class="rounded-xl border border-slate-700 bg-slate-800 p-6">
+          <h2 class="text-xl font-semibold mb-3">Reto principal</h2>
+          <p class="text-slate-300">{detail.challenge}</p>
+        </article>
+        <article class="rounded-xl border border-slate-700 bg-slate-800 p-6">
+          <h2 class="text-xl font-semibold mb-3">Enfoque de solucion</h2>
+          <p class="text-slate-300">{detail.solution}</p>
         </article>
       </section>
 
       <section class="mt-10 rounded-xl border border-slate-700 bg-slate-800 p-6">
-        <header class="text-center">
-          <h2 class="text-2xl font-semibold">Estructura sugerida de la plantilla</h2>
-          <p class="mt-2 text-slate-300 max-w-2xl mx-auto">
-            Una guía breve para presentar cualquier proyecto de forma profesional.
+        <header>
+          <h2 class="text-2xl font-semibold">Arquitectura y decisiones tecnicas</h2>
+          <p class="mt-2 text-slate-300 max-w-3xl">
+            Este bloque resume las decisiones clave que sostienen el rendimiento, mantenibilidad y escalabilidad del proyecto.
           </p>
         </header>
 
-        <div class="mt-6 grid gap-4 md:grid-cols-2">
-          <article class="rounded-lg border border-slate-600 bg-slate-900/60 p-4">
-            <p class="text-cyan-300 font-semibold">01. Contexto</p>
-            <p class="mt-1 text-slate-200">Resumen ejecutivo del proyecto en 2 o 3 líneas.</p>
-          </article>
+        <ul class="mt-6 grid gap-4 md:grid-cols-3">
+          {detail.architecture.map((item) => (
+            <li class="rounded-lg border border-slate-600 bg-slate-900/60 p-4 text-slate-200">{item}</li>
+          ))}
+        </ul>
+      </section>
 
-          <article class="rounded-lg border border-slate-600 bg-slate-900/60 p-4">
-            <p class="text-cyan-300 font-semibold">02. Objetivos</p>
-            <p class="mt-1 text-slate-200">Objetivos de negocio y requerimientos técnicos.</p>
-          </article>
-
-          <article class="rounded-lg border border-slate-600 bg-slate-900/60 p-4">
-            <p class="text-cyan-300 font-semibold">03. Diseño técnico</p>
-            <p class="mt-1 text-slate-200">Arquitectura de alto nivel y stack utilizado.</p>
-          </article>
-
-          <article class="rounded-lg border border-slate-600 bg-slate-900/60 p-4">
-            <p class="text-cyan-300 font-semibold">04. Evidencia visual</p>
-            <p class="mt-1 text-slate-200">Capturas, demo o flujo principal de usuario.</p>
-          </article>
-
-          <article class="rounded-lg border border-slate-600 bg-slate-900/60 p-4 md:col-span-2">
-            <p class="text-cyan-300 font-semibold">05. Resultados</p>
-            <p class="mt-1 text-slate-200">Resultados, aprendizajes y próximos pasos.</p>
-          </article>
+      <section class="mt-10 rounded-xl border border-slate-700 bg-slate-800 p-6">
+        <h2 class="text-2xl font-semibold">Resultados medibles</h2>
+        <div class="mt-6 grid gap-4 md:grid-cols-3">
+          {detail.metrics.map((item) => (
+            <article class="rounded-lg border border-cyan-500/40 bg-slate-900/60 p-4">
+              <p class="text-cyan-300 uppercase text-xs tracking-[0.18em]">{item.metric}</p>
+              <p class="mt-2 text-3xl font-bold">{item.value}</p>
+              <p class="mt-2 text-slate-300 text-sm">{item.note}</p>
+            </article>
+          ))}
         </div>
+      </section>
+
+      <section class="mt-10 rounded-xl border border-slate-700 bg-slate-800 p-6">
+        <h2 class="text-2xl font-semibold">Proximos pasos</h2>
+        <ol class="mt-4 space-y-3">
+          {detail.roadmap.map((step, index) => (
+            <li class="flex items-start gap-3 text-slate-200">
+              <span class="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cyan-600 text-xs font-semibold">
+                {index + 1}
+              </span>
+              <span>{step}</span>
+            </li>
+          ))}
+        </ol>
       </section>
 
       <section class="mt-10 flex flex-wrap justify-end gap-4">

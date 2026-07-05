@@ -4,7 +4,35 @@ import ProjectCard from "../components/ProjectCard.jsx";
 import personalData from "../data/personalData";
 import avatar from "../assets/avatar.jpg";
 import projects from "../data/projects";
+import skillsByCategory from "../data/skills";
 import Scroller from "../components/Scroller.jsx";
+
+const skillLevelByName = new Map(
+  skillsByCategory.flatMap((category) =>
+    category.skills.map((skill) => [skill.name.toLowerCase(), skill.level] as const),
+  ),
+);
+
+const skillAliases: Record<string, string> = {
+  "tailwind": "tailwind css",
+  "node.js": "javascript",
+};
+
+const getSkillLevel = (tech: string) => {
+  const normalized = tech.toLowerCase();
+  const alias = skillAliases[normalized] ?? normalized;
+  return skillLevelByName.get(alias) ?? 0;
+};
+
+const featuredProjects = projects
+  .map((project, index) => ({
+    project,
+    index,
+    relevanceScore: project.tech.reduce((sum, tech) => sum + getSkillLevel(tech), 0),
+  }))
+  .sort((a, b) => b.relevanceScore - a.relevanceScore || a.index - b.index)
+  .slice(0, 2)
+  .map((item) => item.project);
 ---
 
 <html lang="es">
@@ -142,9 +170,7 @@ import Scroller from "../components/Scroller.jsx";
         />
         <div class="grid gap-6 md:grid-cols-2">
           {
-            projects
-              .filter((p) => p.id === "proyecto-1" || p.id === "proyecto-3")
-              .map((project) => <ProjectCard client:load {...project} />)
+            featuredProjects.map((project) => <ProjectCard client:load {...project} />)
           }
         </div>
         <div class="mt-8 text-center">

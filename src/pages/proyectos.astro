@@ -1,6 +1,30 @@
 ---
 import ProjectCard from '../components/ProjectCard.jsx';
 import proyectos from '../data/projects';
+import skillsByCategory from '../data/skills';
+
+const skillLevelByName = new Map(
+  skillsByCategory.flatMap((category) =>
+    category.skills.map((skill) => [skill.name.toLowerCase(), skill.level] as const),
+  ),
+);
+
+const skillAliases: Record<string, string> = {
+  tailwind: 'tailwind css',
+  'node.js': 'javascript',
+};
+
+const getSkillLevel = (tech: string) => {
+  const normalized = tech.toLowerCase();
+  const alias = skillAliases[normalized] ?? normalized;
+  return skillLevelByName.get(alias) ?? 0;
+};
+
+const proyectosOrdenados = [...proyectos].sort((a, b) => {
+  const scoreA = a.tech.reduce((sum, tech) => sum + getSkillLevel(tech), 0);
+  const scoreB = b.tech.reduce((sum, tech) => sum + getSkillLevel(tech), 0);
+  return scoreB - scoreA;
+});
 ---
 
 <html lang="es">
@@ -15,7 +39,7 @@ import proyectos from '../data/projects';
       <p class="text-xl mb-12">Aquí puedes ver algunos de mis proyectos más destacados.</p>
 
       <div class="grid gap-8 md:grid-cols-2">
-        {proyectos.map((proyecto) => (
+        {proyectosOrdenados.map((proyecto) => (
           <ProjectCard client:load {...proyecto} />
         ))}
       </div>
