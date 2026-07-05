@@ -34,6 +34,13 @@ const projects: ProjectData[] = [
     description: 'Descripción detallada del proyecto 4',
     tech: ['Next.js', 'Prisma', 'PostgreSQL'],
     link: '/proyectos/proyecto-4'
+  },
+    {
+    id: 'proyecto-5',
+    title: 'Proyecto 5',
+    description: 'Descripción detallada del proyecto 5',
+    tech: ['Next.js', 'NestJS', 'Firebase'],
+    link: '/proyectos/proyecto-5'
   }
 ];
 
