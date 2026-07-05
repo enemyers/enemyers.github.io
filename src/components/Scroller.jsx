@@ -18,7 +18,7 @@ const ScrollToTop = () => {
   return (
     <button
       onClick={scrollToTop}
-      className={`fixed bottom-8 right-8 z-50 p-3 rounded-full bg-cyan-500 hover:bg-cyan-400 text-white shadow-lg transition-opacity duration-300 ${visible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+      className={`fixed bottom-8 right-8 z-50 p-3 rounded-full bg-cyan-700 hover:bg-cyan-600 text-white dark:bg-cyan-500 dark:hover:bg-cyan-400 dark:text-white shadow-lg transition-opacity duration-300 ${visible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
       aria-label="Subir al inicio"
     >
       <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
