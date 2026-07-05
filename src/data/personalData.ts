@@ -15,7 +15,6 @@ export interface PersonalData {
   bio: string;
   ubicacion: string;
   email: string;
-  telefono: string;
   redes: RedesSociales;
 }
 
@@ -26,7 +25,6 @@ const personalData: PersonalData = {
   bio: 'Apasionado por crear experiencias digitales modernas y atractivas.',
   ubicacion: 'Santiago, Chile',
   email: 'n.herrera.vilches@gmail.com',
-  telefono: '+56 9 9841 6087',
   redes: {
     github: 'https://github.com/enemyers',
     linkedin: 'https://www.linkedin.com/in/nicol%C3%A1s-herrera-vilches-449284b4/'
